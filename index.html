@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thâmara Luna — Estrategista Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #FAFAF9;
+      --ink:     #1A1A18;
+      --ink-mid: #6B6B69;
+      --ink-low: #AEAEAD;
+      --sage:    #8A9E8C;
+      --sage-lt: #EEF2EE;
+      --line:    #E8E6E3;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── WRAPPER ── */
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── FOTO ── */
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #D9D5D1;
+      margin-bottom: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; }
+    .avatar-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: #A8A29E;
+    }
+
+    /* ── IDENTIDADE ── */
+    .identity {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .script-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .identity h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 48px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--sage);
+    }
+    .identity .role {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 32px;
+      height: 1px;
+      background: var(--line);
+      margin: 24px auto;
+    }
+
+    /* ── BIO ── */
+    .bio {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      max-width: 360px;
+      margin-bottom: 40px;
+    }
+    .bio strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── SEÇÃO LABEL ── */
+    .section-label {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-label .script {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sage);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .section-label .line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ── CTA PRINCIPAL ── */
+    .cta-wrap {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .btn-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px 22px;
+      background: var(--ink);
+      color: #FAFAF9;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-cta:hover { background: #2d2d2b; }
+    .btn-cta .btn-text {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .btn-cta .btn-sub {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sage);
+      line-height: 1;
+    }
+    .btn-cta .arrow {
+      font-size: 18px;
+      opacity: 0.5;
+    }
+
+    /* ── SERVIÇOS CARDS ── */
+    .services {
+      width: 100%;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .service-card {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--ink);
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--sage);
+      box-shadow: 0 2px 12px rgba(138,158,140,0.12);
+    }
+    .service-card .sc-left { display: flex; flex-direction: column; gap: 3px; }
+    .service-card .sc-tag {
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sage);
+      line-height: 1;
+    }
+    .service-card .sc-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .service-card .sc-desc {
+      font-size: 12px;
+      color: var(--ink-low);
+      font-weight: 300;
+    }
+    .service-card .sc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--sage-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── SOBRE ── */
+    .about-card {
+      width: 100%;
+      padding: 24px 20px;
+      background: var(--sage-lt);
+      border-radius: 6px;
+      margin-bottom: 40px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .about-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #C8C2BD;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 300;
+    }
+    .about-text {}
+    .about-text .about-script {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .about-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .about-text p {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--ink-mid);
+    }
+
+    /* ── REDES SOCIAIS ── */
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      text-decoration: none;
+      color: var(--ink-mid);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .social-btn svg { width: 14px; height: 14px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+    }
+    footer .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--ink-low);
+      margin-bottom: 4px;
+    }
+    footer p {
+      font-size: 11px;
+      color: var(--ink-low);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- AVATAR -->
+    <div class="avatar">
+      <img src="IMG_5796.jpeg" alt="Thâmara Luna" />
+    </div>
+
+    <!-- IDENTIDADE -->
+    <div class="identity">
+      <span class="script-label">Prazer,</span>
+      <h1>Thâmara Luna</h1>
+      <p class="role">Estrategista Digital &amp; Social Media</p>
+    </div>
+
+    <!-- BIO -->
+    <p class="bio">
+      Há mais de 3 anos gerenciando perfis em diferentes nichos e desde então aprendi o que separa um perfil bonito de um perfil que gera resultado. Hoje trabalho com negócios que querem mais do que seguidores — querem <strong>autoridade e vendas</strong>.
+    </p>
+
+    <!-- CTA ORÇAMENTO -->
+    <div class="cta-wrap">
+      <div class="section-label">
+        <span class="script">Serviços</span>
+        <div class="line"></div>
+      </div>
+      <a href="https://wa.me/5581998421982?text=Olá%20Thâmara!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn-cta" target="_blank">
+        <span class="btn-text">Solicite seu orçamento</span>
+        <span class="btn-sub">entre em contato</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <div class="services">
+      <a href="https://wa.me/5581998421982?text=Olá%20Thâmara!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." class="service-card" target="_blank">
+        <div class="sc-left">
+          <span class="sc-tag">gestão</span>
+          <span class="sc-name">Gerenciamento de Perfis</span>
+          <span class="sc-desc">Diagnóstico, cronograma e análise de métricas</span>
+        </div>
+        <div class="sc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A9E8C" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#8A9E8C"/></svg>
+        </div>
+      </a>
+      <a href="https://wa.me/5581998421982?text=Olá%20Thâmara!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." class="service-card" target="_blank">
+        <div class="sc-left">
+          <span class="sc-tag">lançamentos</span>
+          <span class="sc-name">Lançamentos Digitais</span>
+          <span class="sc-desc">Estratégia, gestão de conteúdo e copy</span>
+        </div>
+        <div class="sc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A9E8C" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+      </a>
+      <a href="https://wa.me/5581998421982?text=Olá%20Thâmara!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." class="service-card" target="_blank">
+        <div class="sc-left">
+          <span class="sc-tag">conteúdo</span>
+          <span class="sc-name">Criação de Conteúdo Estratégico</span>
+          <span class="sc-desc">Linhas editoriais, Reels e calendário sazonal</span>
+        </div>
+        <div class="sc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A9E8C" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- SOBRE -->
+    <div class="section-label">
+      <span class="script">Sobre mim</span>
+      <div class="line"></div>
+    </div>
+    <div class="about-card">
+      <div class="about-photo" style="overflow:hidden;padding:0;border-radius:6px;"><img src="IMG_8408.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;" /></div>
+      <div class="about-text">
+        <span class="about-script">Olá!</span>
+        <h3>Thâmara Luna</h3>
+        <p>Transformo perfis em canais que atraem, engajam e vendem — com estratégia, posicionamento e conteúdo que realmente conecta com o seu público.</p>
+      </div>
+    </div>
+
+    <!-- REDES -->
+    <div class="section-label" style="margin-bottom:20px;">
+      <span class="script">me encontre</span>
+      <div class="line"></div>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/thamluna" class="social-btn" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/5581998421982" class="social-btn" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+<p>© 2025 Thâmara Luna · Todos os direitos reservados</p>
+    </footer>
+
+  </div>
+</body>
+</html>
