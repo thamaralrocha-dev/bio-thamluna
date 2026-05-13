@@ -140,6 +140,9 @@
     .cta-wrap {
       width: 100%;
       margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     .btn-cta {
       display: flex;
@@ -153,7 +156,14 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .btn-cta:hover { background: #2d2d2b; }
+    .btn-cta:hover { background: #FAFAF9; color: var(--ink); }
+    .btn-cta-outline {
+      background: #FAFAF9;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
+    .btn-cta-outline:hover { background: var(--ink); color: #FAFAF9; }
+    .btn-cta-outline .btn-sub { color: var(--sage); }
     .btn-cta .btn-text {
       font-size: 13px;
       font-weight: 500;
@@ -348,6 +358,11 @@
       <a href="https://wa.me/5581998421982?text=Olá%20Thâmara!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn-cta" target="_blank">
         <span class="btn-text">Solicite seu orçamento</span>
         <span class="btn-sub">entre em contato</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="https://wa.me/5581998421982?text=Oi%20Th%C3%A2mara!%20Vim%20pelo%20Instagram%20e%20quero%20a%20an%C3%A1lise%20gratuita%20do%20meu%20perfil." class="btn-cta btn-cta-outline" target="_blank">
+        <span class="btn-text">Análise gratuita do perfil</span>
+        <span class="btn-sub">do Instagram</span>
         <span class="arrow">→</span>
       </a>
     </div>
